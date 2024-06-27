@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         // Ejemplo de Ticket Normal
         Ruta ruta1 = new Ruta("Quito", "Guayaquil", 20);
-        Pasajero pasajero1 = new Pasajero("Allison Muñoz", 20);
+        Pasajero pasajero1 = new Pasajero("Alisson Muñoz", 20);
         Normal ticketNormal = new Normal(true, false, "ventana", true);
         Tickets ticket1 = new Tickets(ruta1, ticketNormal, pasajero1, ticketNormal.calcularCosto());
 
