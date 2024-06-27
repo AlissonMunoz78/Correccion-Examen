@@ -1,6 +1,6 @@
 package compra_pasajes;
 
-public abstract class Vip extends Servicio {
+public class Vip extends Servicio {
     private boolean maletaExt;
     private boolean dosMaletas;
 
@@ -35,5 +35,16 @@ public abstract class Vip extends Servicio {
     }
 
     @Override
-    public abstract double calcularCosto();
+    public double calcularCosto() {
+        double costo = super.getPrecioBase();
+
+        if (super.isTelevision()) {
+            costo += 50;
+        }
+        if (super.isInternet()) {
+            costo += 150;
+        }
+
+        return costo;
+    }
 }

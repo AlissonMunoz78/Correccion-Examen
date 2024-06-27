@@ -1,6 +1,8 @@
 package compra_pasajes;
 
 public abstract class Servicio {
+    private boolean television;
+    private boolean internet;
     private double precioBase;
 
     public Servicio() {
@@ -11,12 +13,25 @@ public abstract class Servicio {
     }
 
     public Servicio(boolean television, boolean internet) {
-        if (television) {
-            this.precioBase = 50;
-        }
-        if (internet) {
-            this.precioBase += 150;
-        }
+        this.television = television;
+        this.internet = internet;
+        calcularPrecioBase();
+    }
+
+    public boolean isTelevision() {
+        return television;
+    }
+
+    public void setTelevision(boolean television) {
+        this.television = television;
+    }
+
+    public boolean isInternet() {
+        return internet;
+    }
+
+    public void setInternet(boolean internet) {
+        this.internet = internet;
     }
 
     public double getPrecioBase() {
@@ -28,4 +43,13 @@ public abstract class Servicio {
     }
 
     public abstract double calcularCosto();
+
+    private void calcularPrecioBase() {
+        if (television) {
+            precioBase += 50;
+        }
+        if (internet) {
+            precioBase += 150;
+        }
+    }
 }
